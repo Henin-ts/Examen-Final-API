@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, PlainTextResponse
-from fastapi.responses import PlainTextResponse;
 from fastapi.responses import JSONResponse; 
 
 app = FastAPI()
@@ -11,5 +10,13 @@ def get_health():
 
 
 @app.post("/phones")
-def create_liste(idedentifier : str , brand : str , modele : str , characteristics : object  ):
-    return {idedentifier , brand , modele , characteristics}
+def create_liste(identifier : str , brand : str , modele : str  ):
+    return { JSONResponse : ( identifier , brand , modele )}
+
+
+
+@app.get("/phones")
+def phone():
+    return {}
+
+
